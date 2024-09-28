@@ -1,0 +1,23 @@
+.bookmark {
+    cursor: pointer;
+    padding: 0;
+    border: 0;
+    border-radius: 35px;
+    background: white;
+    width: 60px;
+    height: 60px;
+
+    &:hover {
+        background: rgba(251, 215, 178, 0.3);
+    }
+
+    img {
+        padding: 17px;
+        width: 25px;
+        height: 25px;
+    }
+}
+
+.booked {
+    background: rgba(251, 215, 178, 0.5) !important;
+}

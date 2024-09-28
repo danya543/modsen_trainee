@@ -1,9 +1,11 @@
 import "./App.scss";
 
+import { AppRouter } from "./route/AppRouter";
+
 function App() {
 
     return (
-        <div>Modsen Museum</div>
+        <AppRouter />
     );
 }
 
