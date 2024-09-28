@@ -1,0 +1,47 @@
+.searchBlock {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h3 {
+        font-family: 'Lexend Deca';
+        font-weight: 700;
+        color: rgba(57, 57, 57, 1);
+
+        width: 660px;
+        font-size: 64px;
+        text-align: center;
+        text-transform: capitalize;
+        text-wrap: wrap;
+        margin-bottom: 30px;
+
+        span {
+            color: rgba(241, 121, 0, 1);
+        }
+    }
+
+    .searchInput {
+        position: relative;
+
+        input {
+            width: 660px;
+            height: 50px;
+            padding: 6px 16px;
+            background: rgba(57, 57, 57, 0.05);
+            border: 0;
+            border-radius: 16px;
+            outline: none;
+        }
+
+        button {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            left: 95%;
+            transform: translate(-50%, -50%);
+            border: 0;
+            background: transparent;
+        }
+    }
+}
