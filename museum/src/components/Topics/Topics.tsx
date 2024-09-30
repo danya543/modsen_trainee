@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { ArtsPerPage } from '~/api/constants'
 import { fetchArts } from '~/api/fetchArts'
 import { UserArtsResponse } from '~/entities/Arts'
 import { SessionStorageKey } from '~/Pages/constants/constants'
@@ -13,7 +14,7 @@ export const Topics = () => {
     const [page, setPage] = useState(1);
 
     useEffect(() => {
-        fetchArts(3, page).then((data) => {
+        fetchArts(ArtsPerPage.Topics, page).then((data) => {
             setTopics(data)
             sessionStorage.setItem(SessionStorageKey.listId, JSON.stringify({ [page]: data.data }))
         })

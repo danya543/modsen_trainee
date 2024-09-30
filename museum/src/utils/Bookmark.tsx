@@ -1,7 +1,7 @@
-import classNames from 'classnames'
 import { useState } from 'react'
 
-import BookmarkIcon from '~/assets/bookmark.svg'
+import Book from '~/assets/book.svg'
+import Booked from '~/assets/booked.svg'
 import { SessionStorageKey } from '~/Pages/constants/constants'
 
 import styles from './utils.module.scss'
@@ -34,11 +34,8 @@ export const Bookmark = ({ id }: {
         }
     }
     return (
-        <button className={classNames({
-            [styles.bookmark]: true,
-            [styles.booked]: isBooked,
-        })} onClick={handleToggleBookmark}>
-            <img src={BookmarkIcon} alt="" />
+        <button className={styles.bookmark} onClick={handleToggleBookmark}>
+            <img src={isBooked ? Booked : Book} alt="" />
         </button>
     )
 }
