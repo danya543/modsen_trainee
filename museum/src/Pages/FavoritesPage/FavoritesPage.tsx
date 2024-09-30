@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 
 import { fetchPosters } from "~/api/fetchPosters";
+import { Card } from "~/components/Card/Card"
 import { UserArtResponse } from "~/entities/Arts";
 import { SessionStorageKey } from "~/Pages/constants/constants"
 
-import { Card } from "../Card/Card"
-import styles from './favorities.module.scss'
+import styles from './FavoritiesPage.module.scss'
 
-export const Favorites = () => {
+export const FavoritesPage = () => {
     const [posts, setPosts] = useState<UserArtResponse[] | null>(null);
 
     const favArts = sessionStorage.getItem(SessionStorageKey.book);

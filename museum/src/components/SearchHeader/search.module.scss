@@ -25,9 +25,12 @@
         position: relative;
 
         input {
+            font-family: 'Lexend Deca';
+            font-size: 20px;
+            box-sizing: border-box;
             width: 660px;
-            height: 50px;
-            padding: 6px 16px;
+            height: 60px;
+            padding: 6px 85px 6px 16px;
             background: rgba(57, 57, 57, 0.05);
             border: 0;
             border-radius: 16px;
@@ -35,6 +38,7 @@
         }
 
         button {
+            outline: none;
             cursor: pointer;
             position: absolute;
             top: 50%;
@@ -42,6 +46,39 @@
             transform: translate(-50%, -50%);
             border: 0;
             background: transparent;
+        }
+
+        .clearInput {
+            position: absolute;
+            left: 89%;
+
+            img {
+                width: 14px;
+                height: 14px;
+            }
+        }
+    }
+}
+
+@media(max-width:700px) {
+    .searchBlock {
+        width: 90%;
+        margin: 50px auto;
+
+        h3 {
+            width: 100%;
+        }
+
+        .searchInput {
+            width: 100%;
+
+            input {
+                width: 100%;
+            }
+
+            .clearInput {
+                left: 85%;
+            }
         }
     }
 }

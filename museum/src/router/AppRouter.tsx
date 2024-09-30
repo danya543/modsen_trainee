@@ -1,10 +1,11 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { Favorites } from '../components/Favorites/Favorites';
-import { ArtPage } from '../Pages/ArtPage/ArtPage';
-import { ErrorPage } from '../Pages/ErrorPage/ErrorPage';
-import { MainLayout } from '../Pages/MainLayout/MainLayout';
-import { MainPage } from '../Pages/MainPage/MainPage';
+import { ArtPage } from '~/Pages/ArtPage/ArtPage';
+import { ErrorPage } from '~/Pages/ErrorPage/ErrorPage';
+import { FavoritesPage } from '~/Pages/FavoritesPage/FavoritesPage';
+import { MainLayout } from '~/Pages/MainLayout/MainLayout';
+import { MainPage } from '~/Pages/MainPage/MainPage';
+import { SearchPage } from '~/Pages/SearchPage/SearchPage';
 
 
 const routerSchema = createBrowserRouter([
@@ -18,12 +19,12 @@ const routerSchema = createBrowserRouter([
             },
             {
                 path: 'favorites',
-                element: <Favorites />
+                element: <FavoritesPage />
             },
-            /*             {
-                            path: '/searchResult/:query',
-                            element: <SearchPage />
-                        }, */
+            {
+                path: 'search-result/:query',
+                element: <SearchPage />
+            },
             {
                 path: 'art/:id',
                 element: <ArtPage />

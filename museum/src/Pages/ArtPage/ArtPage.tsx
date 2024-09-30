@@ -29,7 +29,7 @@ export const ArtPage = () => {
                 <div className={styles.overview}>
                     <h3>Overview</h3>
                     <p><span>Artist nacionality: </span>{data.place_of_origin}</p>
-                    <p><span>Dimensions: </span>{data.dimensions}</p>
+                    <p><span>Dimensions: </span>{data.dimensions.split(';')[0]}</p>
                     <p><span>Credit Line: </span>{data.credit_line}</p>
                     <p><span>Repository: </span>{data.publishing_verification_level}</p>
                 </div>

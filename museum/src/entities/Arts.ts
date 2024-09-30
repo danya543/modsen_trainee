@@ -18,7 +18,6 @@ export interface Arts {
 export interface Pagination {
     current_page: number;
     limit: number;
-    next_url: string;
     offset: number;
     total: number;
     total_pages: number;
@@ -30,4 +29,14 @@ export interface UserArtsResponse {
 }
 export interface UserArtResponse {
     data: Arts;
+}
+
+
+export type Results = {
+    id: number;
+    title: string;
+}
+export interface SearchResults {
+    data: Results[];
+    pagination: Pagination
 }

@@ -1,7 +1,8 @@
 .card {
-    width: 30%;
+    width: 33%;
     padding: 16px;
     display: flex;
+    box-sizing: border-box;
 
 
     .info {
@@ -30,7 +31,7 @@
             h3 {
                 cursor: pointer;
                 color: rgba(57, 57, 57, 1);
-                font-size: 17px;
+                font-size: 1.5vw;
                 margin-bottom: 10px;
             }
         }
@@ -39,22 +40,23 @@
 
 .large {
     position: relative;
+    min-width: 300px;
     margin-bottom: 50px;
+    align-items: center;
+    flex-direction: column;
 
     .poster {
         width: 100%;
-        height: 100%;
+        height: 450px;
         object-fit: cover;
     }
 
-
     .info {
-        position: absolute;
         width: 80%;
-        margin-left: 7%;
-        padding: 10px;
+        margin-top: -60px;
+        padding: 25px 15px;
         background: white;
-        top: 80%;
+        top: 85%;
         left: 0;
 
         .user {
@@ -79,5 +81,37 @@
 
     .info {
         width: 80%;
+    }
+}
+
+@media(max-width:1000px) {
+    .large {
+        width: 45%;
+    }
+
+    .card {
+        .info {
+            .user {
+                h3 {
+                    font-size: 2.2vw;
+                }
+            }
+        }
+    }
+}
+
+@media(max-width:700px) {
+    .large {
+        width: 90%;
+    }
+
+    .card {
+        .info {
+            .user {
+                h3 {
+                    font-size: 3.5vw;
+                }
+            }
+        }
     }
 }
