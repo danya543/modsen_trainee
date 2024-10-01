@@ -5,6 +5,7 @@ import { IMAGE_API_URL } from "~/api/constants";
 import { loadImage } from "~/api/fetchImage";
 import { fetchPoster } from "~/api/fetchPoster";
 import NoImage from '~/assets/no-image.png'
+import { CardSize } from "~/components/constants";
 import { Loader } from "~/components/Loader/Loader";
 import { ArtPageSkeletonLoader } from "~/components/SkeletonLoaders/ArtPage/ArtPage";
 import { Arts } from "~/entities/Arts";
@@ -21,8 +22,11 @@ export const ArtPage = () => {
     useEffect(() => {
         fetchPoster(id).then((data) => setData(data.data));
         try {
-            data?.image_id && loadImage(`${IMAGE_API_URL}/${data.image_id}/full/843,/0/default.jpg`, () => setIsLoading(false));
+            data?.image_id && loadImage(`${IMAGE_API_URL}/${data.image_id}/full/843,/0/default.jpg`)
+                .then(() => setIsLoading(false))
+                .catch(() => { setIsLoading(false); setIsError(true) });
         } catch (err) {
+            setIsLoading(false);
             setIsError(true);
         }
     }, [id, data?.image_id])
@@ -32,7 +36,7 @@ export const ArtPage = () => {
         <section className={styles.container}>
             <div className={styles.img_block}>
                 {isLoading ?
-                    <Loader type={'large'} /> :
+                    <Loader type={CardSize.Large} /> :
                     isError ?
                         <img src={NoImage} alt="" className={styles.no_image} /> :
                         <img src={`${IMAGE_API_URL}/${data.image_id}/full/843,/0/default.jpg`} alt="Art Work" className={styles.poster} />}

@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import Book from '~/assets/book.svg'
 import Booked from '~/assets/booked.svg'
-import { SessionStorageKey } from '~/pages/constants/constants'
+import { SessionStorageKey } from '~/Pages/constants/constants'
 
 import styles from './utils.module.scss'
 

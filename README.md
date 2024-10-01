@@ -84,11 +84,3 @@
 [Husky](https://dev.to/ivadyhabimana/setup-eslint-prettier-and-husky-in-a-node-project-a-step-by-step-guide-946)
 [GitFlow](https://www.atlassian.com/ru/git/tutorials/comparing-workflows/gitflow-workflow)
 [Commit Convention](https://www.conventionalcommits.org/en/v1.0.0/)
-
-
-
-
-
-art.ts раскидать на разные файлы
-
-сделать валидацию инпута жпт

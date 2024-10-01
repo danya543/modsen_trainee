@@ -3,7 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import { fetchSearch } from "~/api/fetchSearch";
 import { SearchHeader } from "~/components/SearchHeader/SearchHeader";
-import { Pagination, Results } from "~/entities/Arts";
+import { Pagination } from "~/entities/Arts";
+import { Results } from '~/entities/Search'
 
 import styles from './SearchPage.module.scss'
 

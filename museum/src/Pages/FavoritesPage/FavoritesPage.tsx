@@ -4,7 +4,7 @@ import { fetchPosters } from "~/api/fetchPosters";
 import { Card } from "~/components/Card/Card"
 import { CardsSkeletonLoader } from "~/components/SkeletonLoaders/Cards/Cards";
 import { UserArtResponse } from "~/entities/Arts";
-import { SessionStorageKey } from "~/pages/constants/constants"
+import { SessionStorageKey } from "~/Pages/constants/constants"
 
 import styles from './FavoritiesPage.module.scss'
 

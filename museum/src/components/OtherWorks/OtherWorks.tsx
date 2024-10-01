@@ -9,11 +9,11 @@ import { CardsSkeletonLoader } from "../SkeletonLoaders/Cards/Cards"
 import styles from './OtherWorks.module.scss'
 
 export const OtherWorks = () => {
-    const page = (Math.floor(Math.random() * (10000 - 1000 + 1)) + 1000);
+    const page = 1354;
     const [works, setWorks] = useState<Arts[] | null>(null);
     useEffect(() => {
         fetchArts(ArtsPerPage.Others, page).then((data) => setWorks(data.data))
-    }, [page])
+    }, [])
 
     return (
         <section className={styles.container}>

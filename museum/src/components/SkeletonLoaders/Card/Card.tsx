@@ -1,8 +1,10 @@
 import classNames from "classnames"
 
+import { CardSize } from "~/components/constants"
+
 import styles from './Card.module.scss'
 
-export const CardSkeletonLoader = ({ type = 'small' }: { type?: string }) => {
+export const CardSkeletonLoader = ({ type = CardSize.Small }: { type?: string }) => {
     return (
         <section className={classNames({
             [styles.container]: true,

@@ -24,6 +24,12 @@
     .searchInput {
         position: relative;
 
+        >div:nth-child(2) {
+            position: absolute;
+            top: 38px;
+            left: 15px;
+        }
+
         input {
             font-family: 'Lexend Deca';
             font-size: 20px;
