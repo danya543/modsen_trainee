@@ -26,11 +26,12 @@ export const SearchHeader = ({ query = '' }: { query?: string }) => {
     const [search, setSearch] = useState(query);
     const [autocompleteTitles, setAutocompleteTitles] = useState<Results[] | null>(null);
     const [isOpen, setIsOpen] = useState(!search);
+    const [isLoading, setIsLoading] = useState(false);
     const ref = useRef(null);
 
     useEffect(() => {
         document.addEventListener('mousedown', ({ target }) => {
-            console.log(ref.current)
+            //@ts-ignore
             if (ref.current && !ref.current.contains(target)) {
                 setIsOpen(false)
             }
@@ -39,8 +40,9 @@ export const SearchHeader = ({ query = '' }: { query?: string }) => {
 
     const debouncedFetchSearch = useCallback(
         debounce((searchQuery: string) => {
-            fetchSearch({ query: searchQuery }).then((data) => {
+            fetchSearch({ query: searchQuery, page: 1 }).then((data) => {
                 setAutocompleteTitles(data.data);
+                setIsLoading(false)
             });
         }, 500),
         []
@@ -64,14 +66,14 @@ export const SearchHeader = ({ query = '' }: { query?: string }) => {
             <h3>let's find some <span>art</span> here!</h3>
             <form ref={ref} className={styles.searchInput} onSubmit={(e) => {
                 e.preventDefault();
-                setSearch('');
-                navigate(`search-result/${search}`)
+                setIsOpen(false)
+                navigate(`/search-result/${search}`)
             }}>
                 <input
                     type="text"
                     placeholder={'Search art, artist, work...'}
                     value={search}
-                    onChange={({ target: { value } }) => { setSearch(value); setIsOpen(true) }} />
+                    onChange={({ target: { value } }) => { setSearch(value); setIsOpen(true); setIsLoading(true) }} />
                 <button type='button'
                     className={styles.clearInput}
                     onClick={handleClear}
@@ -80,7 +82,7 @@ export const SearchHeader = ({ query = '' }: { query?: string }) => {
                     <img src={Cross} alt="" />
                 </button>
                 <button type="submit"><img src={Search} /></button>
-                <Autocomplete data={autocompleteTitles} isOpen={isOpen}/* handleOpen={handleOpen} ref={blockRef} */ />
+                <Autocomplete data={autocompleteTitles} isOpen={isOpen} isLoading={isLoading} />
             </form>
         </div>
     )

@@ -25,4 +25,34 @@
             }
         }
     }
+
+    .wrapper {
+        font-family: 'Lexend Deca';
+        text-align: center;
+
+        p {
+            color: rgba(224, 164, 73, 1);
+        }
+
+        h3 {
+            font-size: 4vw;
+        }
+
+        .posts_container {
+            width: 90%;
+            margin: 0 auto;
+            margin-top: 50px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px 5px;
+        }
+
+        .no_favorites {
+            margin-top: 20px;
+            font-size: 3vw;
+        }
+    }
 }

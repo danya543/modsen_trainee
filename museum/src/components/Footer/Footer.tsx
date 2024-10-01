@@ -4,9 +4,9 @@ import styles from './footer.module.scss'
 
 export const Footer = () => {
     return (
-        <div className={styles.footer}>
+        <footer className={styles.footer}>
             <Logo theme={'black'} />
             <img src={Modsen} alt="" />
-        </div>
+        </footer>
     )
 }

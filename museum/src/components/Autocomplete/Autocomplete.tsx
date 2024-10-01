@@ -4,8 +4,8 @@ import { Results } from '~/entities/Arts'
 
 import styles from './Autocomplete.module.scss'
 
-export const Autocomplete = ({ data, isOpen }: {
-    data: Results[] | null, isOpen: boolean
+export const Autocomplete = ({ data, isOpen, isLoading }: {
+    data: Results[] | null, isOpen: boolean, isLoading: boolean
 }) => {
     const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ export const Autocomplete = ({ data, isOpen }: {
     return (data && isOpen &&
         <div className={styles.container} >
             <ul>
-                {data.length > 0 ? data?.map((item) => { return <li key={item.id} onClick={() => handleOpenLink(item.id)}>{item.title}</li> }) : 'Nothing found'}
+                {isLoading ? 'Loading...' : data.length > 0 ? data?.map((item) => { return <li key={item.id} onClick={() => handleOpenLink(item.id)}>{item.title}</li> }) : 'Nothing found'}
             </ul>
         </div>
     )

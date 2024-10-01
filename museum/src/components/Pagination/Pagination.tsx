@@ -1,7 +1,7 @@
 import Next from '~/assets/next.svg'
 import Prev from '~/assets/prev.svg'
 
-import styles from './pagination.module.scss';
+import styles from './Pagination.module.scss';
 
 export const Pagination = ({
     page,

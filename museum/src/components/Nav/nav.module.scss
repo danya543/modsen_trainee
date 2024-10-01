@@ -4,6 +4,10 @@
     gap: 20px;
     justify-content: space-between;
 
+    &.column {
+        flex-direction: column;
+    }
+
     .navItem {
         cursor: pointer;
         display: flex;
@@ -21,11 +25,11 @@
             font-weight: 400;
             font-size: 1.5vw;
             color: white;
-        }
-    }
 
-    .visibility {
-        visibility: hidden;
+            @media(max-width:700px) {
+                font-size: 3vw;
+            }
+        }
     }
 
     .none {
