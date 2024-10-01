@@ -5,12 +5,12 @@ import Bookmark from "../../assets/bookmark.svg";
 import Home from "../../assets/home.svg";
 import styles from './nav.module.scss'
 
-export const Nav = () => {
+export const Nav = ({ isColumn = false }: { isColumn?: boolean }) => {
     const navigate = useNavigate();
     const location = useLocation();
 
     return (
-        <nav className={styles.navigation}>
+        <nav className={classNames({ [styles.navigation]: true, [styles.column]: isColumn })}>
             <div className={classNames({
                 [styles.navItem]: true,
                 [styles.none]: location.pathname === '/'

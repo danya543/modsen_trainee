@@ -5,9 +5,22 @@
     background: white;
 
     ul {
-        padding: 0;
-        height: 200px;
+        border-radius: 0 0 15px 15px;
+        font-family: 'Lexend Deca';
+        padding: 10px 0;
+        font-size: 1.5vw;
+        height: fit-content;
+        max-height: 200px;
         overflow-y: scroll;
+
+        @media(max-width:1000px) {
+            font-size: 2.5vw;
+        }
+
+        @media(max-width:700px) {
+            font-size: 3.5vw;
+        }
+
 
         &::-webkit-scrollbar {
             width: 5px;
@@ -27,8 +40,6 @@
         }
 
         li {
-            font-family: 'Lexend Deca';
-            font-size: 16px;
             list-style: none;
             padding: 15px;
             border-radius: 5px;

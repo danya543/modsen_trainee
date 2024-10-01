@@ -16,6 +16,7 @@
             display: flex;
             flex-direction: column;
             font-family: 'Lexend Deca';
+            text-align: left;
 
             span {
                 color: rgb(224, 164, 73);
@@ -45,10 +46,25 @@
     align-items: center;
     flex-direction: column;
 
+    @media(max-width:1000px) {
+        width: 45%;
+    }
+
+    @media(max-width:700px) {
+        width: 90%;
+    }
+
     .poster {
         width: 100%;
         height: 450px;
         object-fit: cover;
+    }
+
+    .no_image {
+        padding: 5%;
+        width: 90%;
+        object-fit: cover;
+        margin-bottom: 50px;
     }
 
     .info {
@@ -61,6 +77,16 @@
 
         .user {
             margin-right: 20px;
+
+            h3 {
+                @media(max-width:1000px) {
+                    font-size: 2.2vw;
+                }
+
+                @media(max-width:700px) {
+                    font-size: 3.5vw;
+                }
+            }
         }
     }
 
@@ -71,7 +97,16 @@
     align-items: center;
     gap: 10px;
     min-width: 380px;
+    max-height: 150px;
     border: 1px solid rgba(240, 241, 241, 1);
+
+    @media(max-width:1300px) {
+        width: 45%;
+    }
+
+    @media(max-width:900px) {
+        width: 90%;
+    }
 
     .poster {
         width: 80px;
@@ -81,35 +116,15 @@
 
     .info {
         width: 80%;
-    }
-}
 
-@media(max-width:1000px) {
-    .large {
-        width: 45%;
-    }
-
-    .card {
-        .info {
-            .user {
-                h3 {
-                    font-size: 2.2vw;
+        .user {
+            h3 {
+                @media(max-width:900px) {
+                    font-size: 2vw;
                 }
-            }
-        }
-    }
-}
 
-@media(max-width:700px) {
-    .large {
-        width: 90%;
-    }
-
-    .card {
-        .info {
-            .user {
-                h3 {
-                    font-size: 3.5vw;
+                @media(max-width:900px) {
+                    font-size: 3vw;
                 }
             }
         }

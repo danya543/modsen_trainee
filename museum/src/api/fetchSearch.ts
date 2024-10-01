@@ -1,13 +1,10 @@
-
 import { SearchResults } from '~/entities/Arts';
 
-import { BASE_API_URL } from './constants';
+import { ArtsPerPage, BASE_API_URL } from './constants';
 
-
-
-export async function fetchSearch({ query }: { query: string; }): Promise<SearchResults> {
+export async function fetchSearch({ query, page }: { query: string; page: number }): Promise<SearchResults> {
     const response = await fetch(
-        `${BASE_API_URL}/artworks/search?q=${query}`
+        `${BASE_API_URL}/artworks/search?q=${query}&page=${page}&limit=${ArtsPerPage.Search}`
     );
 
     if (response.status == 200) {

@@ -33,8 +33,12 @@
             padding: 6px 85px 6px 16px;
             background: rgba(57, 57, 57, 0.05);
             border: 0;
-            border-radius: 16px;
+            border-radius: 15px;
             outline: none;
+
+            &:focus {
+                border-radius: 15px 15px 0 0;
+            }
         }
 
         button {
