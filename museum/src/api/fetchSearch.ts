@@ -1,4 +1,4 @@
-import { SearchResults } from '~/entities/Arts';
+import { SearchResults } from '~/entities/Search';
 
 import { ArtsPerPage, BASE_API_URL } from './constants';
 

@@ -1,11 +1,11 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { ArtPage } from '~/pages/ArtPage/ArtPage';
-import { ErrorPage } from '~/pages/ErrorPage/ErrorPage';
-import { FavoritesPage } from '~/pages/FavoritesPage/FavoritesPage';
-import { MainLayout } from '~/pages/MainLayout/MainLayout';
-import { MainPage } from '~/pages/MainPage/MainPage';
-import { SearchPage } from '~/pages/SearchPage/SearchPage';
+import { ArtPage } from '~/Pages/ArtPage/ArtPage';
+import { ErrorPage } from '~/Pages/ErrorPage/ErrorPage';
+import { FavoritesPage } from '~/Pages/FavoritesPage/FavoritesPage';
+import { MainLayout } from '~/Pages/MainLayout/MainLayout';
+import { MainPage } from '~/Pages/MainPage/MainPage';
+import { SearchPage } from '~/Pages/SearchPage/SearchPage';
 
 
 const routerSchema = createBrowserRouter([

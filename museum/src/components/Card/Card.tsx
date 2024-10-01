@@ -9,9 +9,10 @@ import { Loader } from '~/components/Loader/Loader'
 import { Arts } from '~/entities/Arts'
 import { Bookmark } from '~/utils/Bookmark'
 
+import { CardSize } from '../constants'
 import styles from './card.module.scss'
 
-export const Card = ({ data, type = 'small', id }: { data: Arts, type?: string; id?: string }) => {
+export const Card = ({ data, type = CardSize.Small, id }: { data: Arts, type?: string; id?: string }) => {
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(true);
     const [isError, setIsError] = useState(false);
@@ -19,8 +20,14 @@ export const Card = ({ data, type = 'small', id }: { data: Arts, type?: string; 
 
     useEffect(() => {
         try {
-            loadImage(`${IMAGE_API_URL}/${data.image_id}/full/843,/0/default.jpg`, () => setIsLoading(false));
+            loadImage(`${IMAGE_API_URL}/${data.image_id}/full/843,/0/default.jpg`)
+                .then(() => setIsLoading(false))
+                .catch(() => {
+                    setIsLoading(false)
+                    setIsError(true);
+                })
         } catch (err) {
+            setIsLoading(false)
             setIsError(true);
         }
     }, [data.image_id])

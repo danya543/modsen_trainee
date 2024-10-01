@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-import { Results } from '~/entities/Arts'
+import { Results } from '~/entities/Search'
 
 import styles from './Autocomplete.module.scss'
 
