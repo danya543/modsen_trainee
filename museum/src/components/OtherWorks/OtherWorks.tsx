@@ -2,10 +2,10 @@ import { useEffect, useState } from "react"
 
 import { ArtsPerPage } from "~/api/constants"
 import { fetchArts } from "~/api/fetchArts"
+import { Card } from "~/components/Card/Card"
+import { CardsSkeletonLoader } from "~/components/SkeletonLoaders/Cards/Cards"
 import { Arts } from "~/entities/Arts"
 
-import { Card } from "../Card/Card"
-import { CardsSkeletonLoader } from "../SkeletonLoaders/Cards/Cards"
 import styles from './OtherWorks.module.scss'
 
 export const OtherWorks = () => {

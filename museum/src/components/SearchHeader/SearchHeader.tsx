@@ -6,9 +6,9 @@ import * as Yup from 'yup';
 import { fetchSearch } from '~/api/fetchSearch'
 import Cross from '~/assets/cross.png'
 import Search from '~/assets/search.svg'
+import { Autocomplete } from '~/components/Autocomplete/Autocomplete'
 import { Results } from '~/entities/Search'
 
-import { Autocomplete } from '../Autocomplete/Autocomplete'
 import styles from './search.module.scss'
 
 
