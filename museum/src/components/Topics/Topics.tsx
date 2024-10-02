@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react'
 
 import { ArtsPerPage } from '~/api/constants'
 import { fetchArts } from '~/api/fetchArts'
+import { Card } from '~/components/Card/Card'
+import { CardSize } from '~/components/constants'
+import { Pagination } from '~/components/Pagination/Pagination'
+import { CardsSkeletonLoader } from '~/components/SkeletonLoaders/Cards/Cards'
+import { Sort } from '~/components/Sort/Sort'
 import { UserArtsResponse } from '~/entities/Arts'
 import { SessionStorageKey } from '~/Pages/constants/constants'
 
-import { Card } from '../Card/Card'
-import { CardSize } from '../constants'
-import { Pagination } from '../Pagination/Pagination'
-import { CardsSkeletonLoader } from '../SkeletonLoaders/Cards/Cards'
-import { Sort } from '../Sort/Sort'
 import styles from './topics.module.scss'
 
 export const Topics = () => {

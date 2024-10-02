@@ -1,8 +1,9 @@
 import classNames from 'classnames';
 import { useLocation, useNavigate } from "react-router-dom";
 
-import Bookmark from "../../assets/bookmark.svg";
-import Home from "../../assets/home.svg";
+import Bookmark from "~/assets/bookmark.svg";
+import Home from "~/assets/home.svg";
+
 import styles from './nav.module.scss'
 
 export const Nav = ({ isColumn = false }: { isColumn?: boolean }) => {
