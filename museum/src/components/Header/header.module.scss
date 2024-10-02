@@ -5,4 +5,16 @@
     flex-direction: row;
     padding: 25px 10%;
     justify-content: space-between;
+    align-items: center;
+
+    @media(max-width:700px) {
+        width: 90%;
+        padding: 20px 5%;
+    }
+
+    >nav {
+        @media (max-width:700px) {
+            display: none;
+        }
+    }
 }

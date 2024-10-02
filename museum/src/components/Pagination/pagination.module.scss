@@ -1,4 +1,4 @@
-.container {
+.container:not(.skleton) {
     position: absolute;
     right: 5%;
     display: flex;
@@ -8,7 +8,7 @@
     align-items: center;
 
     span {
-        background: rgba(241, 121, 0, 1);
+        background: #f17900;
         border-radius: 5px;
         padding: 5px 10px;
     }
@@ -23,4 +23,8 @@
             background: rgba(241, 121, 0, 0.3);
         }
     }
+}
+
+.container.skeleton {
+    background: red;
 }

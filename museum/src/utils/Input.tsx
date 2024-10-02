@@ -6,7 +6,6 @@ export const Input = ({ placeholder, classname, image }:
     return (
         <form className={classname} onSubmit={(e) => {
             e.preventDefault();
-            console.log(search)
             setSearch('');
         }}>
             <input type="text" placeholder={placeholder} value={search} onChange={(e) => { setSearch(e.target.value) }} />

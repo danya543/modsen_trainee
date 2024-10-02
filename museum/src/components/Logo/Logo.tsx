@@ -7,7 +7,7 @@ export const Logo = ({ theme }: { theme?: string }) => {
     const navigate = useNavigate();
     return (
         <div onClick={() => navigate('/')}>
-            <img src={theme === 'black' ? BlackLogoIcon : LogoIcon} alt="" />
+            <img style={{ width: '100%' }} src={theme === 'black' ? BlackLogoIcon : LogoIcon} alt="" />
         </div>
     )
 }

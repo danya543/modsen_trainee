@@ -19,10 +19,10 @@
     .cards {
         display: flex;
         flex-direction: row;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
         width: 90%;
         margin-left: 5%;
-        margin-bottom: 50px;
+        justify-content: center;
     }
 
 }
