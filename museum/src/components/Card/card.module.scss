@@ -65,6 +65,12 @@
         width: 90%;
         object-fit: cover;
         margin-bottom: 50px;
+
+        @media(min-width:1200px) {
+            object-fit: contain;
+            width: 85%;
+            height: 300px;
+        }
     }
 
     .info {

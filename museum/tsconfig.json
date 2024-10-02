@@ -25,7 +25,7 @@
     "allowSyntheticDefaultImports": true,
 
     /* Types */
-    "types": ["react-redux", "react-router-dom", "@reduxjs/toolkit"]
+    "types": ["react-redux", "react-router-dom", "@reduxjs/toolkit", "jest", "node"]
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

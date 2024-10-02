@@ -6,9 +6,9 @@ import * as Yup from 'yup';
 import { fetchSearch } from '~/api/fetchSearch'
 import Cross from '~/assets/cross.png'
 import Search from '~/assets/search.svg'
+import { Autocomplete } from '~/components/Autocomplete/Autocomplete'
 import { Results } from '~/entities/Search'
 
-import { Autocomplete } from '../Autocomplete/Autocomplete'
 import styles from './search.module.scss'
 
 
@@ -82,7 +82,7 @@ export const SearchHeader = ({ query = '' }: { query?: string }) => {
                     setSubmitting(false);
                 }}
             >
-                {({ values, isSubmitting, setFieldValue }) => (
+                {({ values, isSubmitting, setFieldValue, isValid }) => (
                     <Form ref={ref} className={styles.searchInput}>
                         <Field
                             type="text"
@@ -91,7 +91,7 @@ export const SearchHeader = ({ query = '' }: { query?: string }) => {
                             className={styles.searchField}
                             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                                 setFieldValue('search', e.target.value);
-                                handleSearchChange(e.target.value);
+                                isValid && handleSearchChange(e.target.value);
                             }}
                         />
                         {isOpen && <ErrorMessage
