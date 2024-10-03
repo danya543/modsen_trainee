@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom';
 
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/dom';
+import { render } from '@testing-library/react';
 import { useNavigate } from 'react-router-dom';
 
 import { Logo, LogoThemes } from '~/components/Logo/Logo';
