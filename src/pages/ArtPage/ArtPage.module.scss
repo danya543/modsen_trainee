@@ -1,0 +1,146 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  margin: 100px 10% 0;
+  font-family: 'Lexend Deca';
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .title {
+      h1 {
+        font-size: 2.5vw;
+        font-weight: 400;
+        margin: 0;
+        margin-bottom: 30px;
+
+        @media (max-width: 1000px) {
+          font-size: 4vw;
+        }
+
+        @media (max-width: 700px) {
+          font-size: 5vw;
+        }
+      }
+
+      span {
+        color: rgba(224, 164, 73, 1);
+        font-size: 1.5vw;
+
+        @media (max-width: 1000px) {
+          font-size: 2.5vw;
+        }
+
+        @media (max-width: 700px) {
+          font-size: 3.5vw;
+        }
+      }
+
+      p {
+        font-size: 1.5vw;
+        margin-top: 10px;
+        font-weight: 500;
+
+        @media (max-width: 1000px) {
+          font-size: 2vw;
+        }
+
+        @media (max-width: 700px) {
+          font-size: 3vw;
+        }
+      }
+    }
+
+    .overview {
+      h3 {
+        font-weight: 400;
+        font-size: 2.5vw;
+        margin-bottom: 20px;
+
+        @media (max-width: 1000px) {
+          font-size: 4vw;
+        }
+
+        @media (max-width: 700px) {
+          font-size: 5vw;
+        }
+      }
+
+      p {
+        font-size: 1.5vw;
+        margin-bottom: 10px;
+
+        @media (max-width: 1000px) {
+          font-size: 2vw;
+        }
+
+        @media (max-width: 700px) {
+          font-size: 3vw;
+        }
+
+        span {
+          color: rgba(224, 164, 73, 1);
+        }
+      }
+    }
+  }
+
+  .img_block {
+    position: relative;
+    width: 30%;
+    min-width: 300px;
+
+    .poster {
+      width: 100%;
+      max-height: 400px;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .no_image {
+      width: 100%;
+    }
+
+    button {
+      position: absolute;
+      top: 5%;
+      right: 5%;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+
+    .img_block {
+      width: 100%;
+
+      .poster {
+        max-height: 750px;
+      }
+    }
+
+    .info {
+      width: 100%;
+      gap: 30px;
+
+      .title {
+        h1 {
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    gap: 30px;
+    margin-top: 30px;
+  }
+}

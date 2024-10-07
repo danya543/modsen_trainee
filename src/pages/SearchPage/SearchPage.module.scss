@@ -1,0 +1,52 @@
+@mixin flex-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.container {
+  @include flex-col();
+
+  .results_container {
+    width: 100%;
+    @include flex-col();
+
+    .results {
+      width: 60%;
+      margin: 0 auto;
+      font-family: 'Lexend Deca';
+      font-size: 2vw;
+
+      > p {
+        cursor: pointer;
+        padding: 10px 15px;
+        background: #eee;
+        margin-top: 10px;
+
+        &:hover {
+          background: rgba(251, 215, 178, 0.3);
+        }
+      }
+    }
+
+    .more {
+      font-family: 'Lexend Deca';
+      font-size: 2vw;
+      padding: 10px 0;
+      cursor: pointer;
+      border: 0;
+      border-radius: 30px;
+      width: 30%;
+      background: rgba(251, 215, 178, 0.3);
+
+      &:hover:not(:disabled) {
+        background: rgba(251, 215, 178, 0.5);
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+      }
+    }
+  }
+}
