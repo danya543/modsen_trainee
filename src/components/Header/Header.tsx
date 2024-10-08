@@ -1,10 +1,11 @@
 import { Burger } from '@components/Burger/Burger';
 import { BurgerMenu } from '@components/BurgerMenu/BurgerMenu';
-import { useBurgerMenu } from '@components/hooks/burgerHook';
-import { Logo, LogoThemes } from '@components/Logo/Logo';
+import { LogoThemes } from '@components/constants';
+import { Logo } from '@components/Logo/Logo';
 import { Nav } from '@components/Nav/Nav';
+import { useBurgerMenu } from '@hooks/useBurgerMenu';
 
-import styles from './header.module.scss';
+import styles from './Header.module.scss';
 
 export const Header = () => {
   const { isOpen, closeMenu, toggleMenu, menuIcon } = useBurgerMenu();

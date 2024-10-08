@@ -1,14 +1,11 @@
 import { IMAGE_API_URL } from '@api/constants';
-import { loadImage } from '@api/fetchImage';
-import NoImage from '@assets/no-image.png';
+import { CardSize, Images } from '@components/constants';
 import { Loader } from '@components/Loader/Loader';
-import { Arts } from '@entities/Arts';
+import { useCard } from '@hooks/useCard';
+import { Arts } from '@src/types/Arts';
 import { Bookmark } from '@utils/Bookmark';
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
-import { CardSize } from '../constants';
-import styles from './card.module.scss';
+import styles from './Card.module.scss';
 
 export const Card = ({
   data,
@@ -19,34 +16,14 @@ export const Card = ({
   type?: string;
   id?: string;
 }) => {
-  const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
-  const title =
-    data.title.split(' ').length > 5
-      ? data.title.split(' ').slice(0, 6).join(' ') + '...'
-      : data.title;
-
-  useEffect(() => {
-    try {
-      loadImage(`${IMAGE_API_URL}/${data.image_id}/full/843,/0/default.jpg`)
-        .then(() => setIsLoading(false))
-        .catch(() => {
-          setIsLoading(false);
-          setIsError(true);
-        });
-    } catch (err) {
-      setIsLoading(false);
-      setIsError(true);
-    }
-  }, [data.image_id]);
+  const { title, isLoading, isError, handleOpen } = useCard(data);
+  const { NoImage } = Images;
 
   return (
     <div
       id={id}
       className={`${styles.card} ${styles[type]}`}
-      onClick={() => navigate(`/art/${data.id}`)}
-    >
+      onClick={handleOpen}>
       {isLoading ? (
         <Loader type={type} />
       ) : isError ? (

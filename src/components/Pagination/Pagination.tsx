@@ -1,7 +1,7 @@
-import Next from '@assets/next.svg';
-import Prev from '@assets/prev.svg';
+import { Images } from '@components/constants';
+import { Button } from '@utils/Button';
 
-import styles from './pagination.module.scss';
+import styles from './Pagination.module.scss';
 
 export const Pagination = ({
   page,
@@ -12,73 +12,62 @@ export const Pagination = ({
   setPage: (page: number) => void;
   numberPage: number | undefined;
 }) => {
+  const { Prev, Next } = Images;
+  const handleSetPage = (nextPage: number) => {
+    setPage(nextPage);
+  };
+
   return (
     <div className={styles.container}>
-      <button
-        onClick={() => {
-          setPage(page - 1);
-        }}
-        style={page < 3 ? { display: 'none' } : { display: 'block' }}
-      >
-        <img src={Prev} alt="" />
-      </button>
-      <button
-        onClick={() => {
-          setPage(1);
-        }}
-        style={page === 1 ? { display: 'none' } : { display: 'block' }}
-      >
-        1
-      </button>
+      {page > 2 && (
+        <Button
+          onClick={() => {
+            handleSetPage(page - 1);
+          }}
+          icon={Prev}
+        />
+      )}
+      {page != 1 && (
+        <Button
+          onClick={() => {
+            handleSetPage(1);
+          }}
+          text={`1`}
+        />
+      )}
       <span>{numberPage !== 0 && page}</span>
-      <button
-        onClick={() => {
-          setPage(page + 1);
-        }}
-        style={
-          page === numberPage || numberPage === 0
-            ? { display: 'none' }
-            : { display: 'block' }
-        }
-      >
-        {page + 1}
-      </button>
-      <button
-        onClick={() => {
-          setPage(page + 2);
-        }}
-        style={
-          page === numberPage || numberPage === 0
-            ? { display: 'none' }
-            : { display: 'block' }
-        }
-      >
-        {page + 2}
-      </button>
-      <button
-        onClick={() => {
-          setPage(page + 3);
-        }}
-        style={
-          page === numberPage || numberPage === 0
-            ? { display: 'none' }
-            : { display: 'block' }
-        }
-      >
-        {page + 3}
-      </button>
-      <button
-        onClick={() => {
-          setPage(page + 1);
-        }}
-        style={
-          page === numberPage || numberPage === 0
-            ? { display: 'none' }
-            : { display: 'block' }
-        }
-      >
-        <img src={Next} alt="" />
-      </button>
+      {(page + 1 <= numberPage || numberPage != 0) && (
+        <Button
+          onClick={() => {
+            handleSetPage(page + 1);
+          }}
+          text={`${page + 1}`}
+        />
+      )}
+      {(page + 2 <= numberPage || numberPage != 0) && (
+        <Button
+          onClick={() => {
+            handleSetPage(page + 2);
+          }}
+          text={`${page + 2}`}
+        />
+      )}
+      {(page + 3 <= numberPage || numberPage != 0) && (
+        <Button
+          onClick={() => {
+            handleSetPage(page + 3);
+          }}
+          text={`${page + 3}`}
+        />
+      )}
+      {(page + 1 <= numberPage || numberPage != 0) && (
+        <Button
+          onClick={() => {
+            handleSetPage(page + 1);
+          }}
+          icon={Next}
+        />
+      )}
     </div>
   );
 };

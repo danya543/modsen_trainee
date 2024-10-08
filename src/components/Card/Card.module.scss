@@ -1,3 +1,5 @@
+@import '@styles/theme.scss';
+
 .card {
   width: 33%;
   padding: 16px;
@@ -15,23 +17,22 @@
     .user {
       display: flex;
       flex-direction: column;
-      font-family: 'Lexend Deca';
+      font-family: $base-font-family;
       text-align: left;
 
       span {
-        color: rgb(224, 164, 73);
+        color: $primary-orange-color;
         font-size: 15px;
       }
 
       p {
         font-weight: 700;
-        color: rgba(57, 57, 57, 1);
+        color: $gray-color;
         font-size: 15px;
       }
 
       h3 {
-        cursor: pointer;
-        color: rgba(57, 57, 57, 1);
+        color: $gray-color;
         font-size: 1.5vw;
         margin-bottom: 10px;
       }
@@ -77,7 +78,7 @@
     width: 80%;
     margin-top: -60px;
     padding: 25px 15px;
-    background: white;
+    background: $skeleton-bg-color;
     top: 85%;
     left: 0;
 
@@ -103,7 +104,7 @@
   gap: 10px;
   min-width: 380px;
   max-height: 150px;
-  border: 1px solid rgba(240, 241, 241, 1);
+  border: 1px solid $skeleton-p-color;
 
   @media (max-width: 1300px) {
     width: 45%;

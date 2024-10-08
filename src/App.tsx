@@ -2,8 +2,6 @@ import './App.scss';
 
 import { AppRouter } from './router/AppRouter';
 
-function App() {
+export const App = () => {
   return <AppRouter />;
-}
-
-export default App;
+};

@@ -1,3 +1,5 @@
+import { Button } from '@utils/Button';
+
 import styles from './Sort.module.scss';
 
 export const Sort = ({
@@ -9,18 +11,16 @@ export const Sort = ({
 }) => {
   return (
     <div className={styles.container}>
-      <button
+      <Button
+        text={`A-z`}
         onClick={handleToggle}
-        className={`${isIncrese ? styles.isActive : ''}`}
-      >
-        A-z
-      </button>
-      <button
+        classname={`${isIncrese ? styles.isActive : ''}`}
+      />
+      <Button
+        text={`Z-a`}
         onClick={handleToggle}
-        className={`${isIncrese ? '' : styles.isActive}`}
-      >
-        Z-a
-      </button>
+        classname={`${isIncrese ? '' : styles.isActive}`}
+      />
     </div>
   );
 };

@@ -1,9 +1,10 @@
 import { fetchPosters } from '@api/fetchPosters';
 import { Card } from '@components/Card/Card';
+import { SessionStorageKey } from '@components/constants';
 import { CardsSkeletonLoader } from '@components/SkeletonLoaders/Cards/Cards';
 import { Sort } from '@components/Sort/Sort';
-import { UserArtResponse } from '@entities/Arts';
-import { SessionStorageKey } from '@pages/constants/constants';
+import { UserArtResponse } from '@src/types/Arts';
+import { SessionStorageManager } from '@utils/SessionStorageManager';
 import { useEffect, useMemo, useState } from 'react';
 
 import styles from './FavoritiesPage.module.scss';
@@ -11,12 +12,12 @@ import styles from './FavoritiesPage.module.scss';
 export const FavoritesPage = () => {
   const [posts, setPosts] = useState<UserArtResponse[] | null>(null);
   const [isSortIncrease, setIsSortIncrease] = useState(true);
+  const storageManager = new SessionStorageManager();
 
-  const favArts = sessionStorage.getItem(SessionStorageKey.book);
-  const favoritIds = useMemo(() => {
-    return favArts ? JSON.parse(favArts) : [];
-  }, [favArts]);
-  const favorites = favoritIds;
+  const favorites = useMemo(() => {
+    const favArts = storageManager.getItem<string[]>(SessionStorageKey.book);
+    return favArts ? favArts : [];
+  }, []);
 
   useEffect(() => {
     fetchPosters(favorites).then(data =>

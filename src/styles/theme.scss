@@ -1,0 +1,32 @@
+@mixin animBackground {
+    background: linear-gradient(110deg,
+        rgb(236, 236, 236) 8%,
+        rgb(245, 245, 245) 18%,
+        rgb(236, 236, 236) 33%);
+    background-size: 200% 100%;
+    animation: 1.5s shine linear infinite;
+}
+
+@mixin flex-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+$base-font-family:'Lexend Deca';
+
+$primary-orange-color:rgb(224, 164, 73);
+$secondary-orange-color:rgb(241, 121, 0);
+$primary-color-hover:rgb(251, 215, 178);
+$gray-color:rgb(57, 57, 57);
+
+$skeleton-bg-color:rgb(255, 255, 255);
+$skeleton-p-color:rgb(238, 238, 238);
+
+$error-color:rgb(255, 0, 0);
+
+
+$header-font-size: 2.5vw;
+$span-font-size: 1.5vw;
+$p-font-size: 1.5vw;

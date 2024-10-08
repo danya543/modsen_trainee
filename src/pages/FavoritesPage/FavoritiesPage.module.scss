@@ -1,5 +1,7 @@
+@import '@styles/theme.scss';
+
 .container {
-  font-family: 'Lexend Deca';
+  font-family: $base-font-family;
   display: flex;
   flex-direction: column;
 
@@ -10,7 +12,7 @@
 
     span {
       position: relative;
-      color: rgba(241, 121, 0, 1);
+      color: $primary-orange-color;
 
       &::before {
         content: '';
@@ -28,11 +30,11 @@
 
   .wrapper {
     position: relative;
-    font-family: 'Lexend Deca';
+    font-family: $base-font-family;
     text-align: center;
 
     p {
-      color: rgba(224, 164, 73, 1);
+      color: $primary-orange-color;
     }
 
     h3 {

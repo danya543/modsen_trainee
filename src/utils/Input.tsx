@@ -16,8 +16,7 @@ export const Input = ({
       onSubmit={e => {
         e.preventDefault();
         setSearch('');
-      }}
-    >
+      }}>
       <input
         type="text"
         placeholder={placeholder}

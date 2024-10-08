@@ -1,9 +1,11 @@
+@import '@styles/theme.scss';
+
 .container {
   display: flex;
   flex-direction: row;
   gap: 50px;
   margin: 100px 10% 0;
-  font-family: 'Lexend Deca';
+  font-family: $base-font-family;
 
   .info {
     display: flex;
@@ -27,7 +29,7 @@
       }
 
       span {
-        color: rgba(224, 164, 73, 1);
+        color: $primary-orange-color;
         font-size: 1.5vw;
 
         @media (max-width: 1000px) {
@@ -82,7 +84,7 @@
         }
 
         span {
-          color: rgba(224, 164, 73, 1);
+          color: $primary-orange-color;
         }
       }
     }

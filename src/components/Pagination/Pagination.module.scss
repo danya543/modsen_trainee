@@ -1,4 +1,6 @@
-.container:not(.skleton) {
+@import '@styles/theme.scss';
+
+.container {
   position: absolute;
   right: 5%;
   display: flex;
@@ -8,23 +10,21 @@
   align-items: center;
 
   span {
-    background: #f17900;
+    cursor: default;
+    background: $secondary-orange-color;
     border-radius: 5px;
     padding: 5px 10px;
   }
 
   button {
+    cursor: pointer;
     border: 0;
-    background: white;
+    background: $skeleton-bg-color;
     border-radius: 5px;
     padding: 5px 10px;
 
     &:hover {
-      background: rgba(241, 121, 0, 0.3);
+      background: rgba($secondary-orange-color, 0.3);
     }
   }
-}
-
-.container.skeleton {
-  background: red;
 }

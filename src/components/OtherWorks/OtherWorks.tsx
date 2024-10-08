@@ -2,13 +2,14 @@ import { ArtsPerPage, OtherWorksPage } from '@api/constants';
 import { fetchArts } from '@api/fetchArts';
 import { Card } from '@components/Card/Card';
 import { CardsSkeletonLoader } from '@components/SkeletonLoaders/Cards/Cards';
-import { Arts } from '@entities/Arts';
+import { Arts } from '@src/types/Arts';
 import { useEffect, useState } from 'react';
 
 import styles from './OtherWorks.module.scss';
 
 export const OtherWorks = () => {
   const [works, setWorks] = useState<Arts[] | null>(null);
+
   useEffect(() => {
     fetchArts(ArtsPerPage.Others, OtherWorksPage).then(data =>
       setWorks(data.data),

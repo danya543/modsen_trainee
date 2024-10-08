@@ -1,6 +1,8 @@
+@import '@styles/theme.scss';
+
 .gallery {
   position: relative;
-  font-family: 'Lexend Deca';
+  font-family: $base-font-family;
   margin-top: 100px;
 
   .header {
@@ -8,7 +10,7 @@
     margin-bottom: 50px;
 
     p {
-      color: rgb(224, 164, 73);
+      color: $primary-orange-color;
     }
 
     h3 {

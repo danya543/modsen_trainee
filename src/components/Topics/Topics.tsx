@@ -1,42 +1,30 @@
-import { ArtsPerPage } from '@api/constants';
-import { fetchArts } from '@api/fetchArts';
 import { Card } from '@components/Card/Card';
 import { CardSize } from '@components/constants';
 import { Pagination } from '@components/Pagination/Pagination';
 import { CardsSkeletonLoader } from '@components/SkeletonLoaders/Cards/Cards';
 import { Sort } from '@components/Sort/Sort';
-import { UserArtsResponse } from '@entities/Arts';
-import { SessionStorageKey } from '@pages/constants/constants';
-import { useEffect, useState } from 'react';
+import { useTopics } from '@hooks/useTopics';
 
-import styles from './topics.module.scss';
+import styles from './Topics.module.scss';
 
 export const Topics = () => {
-  const [topics, setTopics] = useState<UserArtsResponse | null>(null);
-  const [page, setPage] = useState(1);
-  const [isSortIncrease, setIsSortIncrease] = useState(true);
+  const {
+    topics,
+    clearTopics,
+    page,
+    setPage,
+    isSortIncrease,
+    setIsSortIncrease,
+  } = useTopics();
 
-  useEffect(() => {
-    fetchArts(ArtsPerPage.Topics, page).then(data => {
-      //const sortedData = [...data.data].sort((a, b) => isSortIncrease ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title));
-      setTopics(data); //{ ...data, data: sortedData })
-      sessionStorage.setItem(
-        SessionStorageKey.listId,
-        JSON.stringify({ [page]: data.data }),
-      );
+  const handlePagination = (page: number) => {
+    setPage(page);
+    clearTopics();
+    window.scrollTo({
+      top: 500,
+      behavior: 'smooth',
     });
-  }, [page]);
-
-  useEffect(() => {
-    if (topics) {
-      const sortedData = [...topics.data].sort((a, b) =>
-        isSortIncrease
-          ? a.title.localeCompare(b.title)
-          : b.title.localeCompare(a.title),
-      );
-      setTopics({ ...topics, data: sortedData });
-    }
-  }, [isSortIncrease]);
+  };
 
   return (
     <div className={styles.gallery}>
@@ -57,7 +45,7 @@ export const Topics = () => {
           </div>
           <Pagination
             page={page}
-            setPage={setPage}
+            setPage={handlePagination}
             numberPage={topics.pagination.total_pages}
           />
         </div>

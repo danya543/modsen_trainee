@@ -1,4 +1,4 @@
-import { Results } from '@entities/Search';
+import { Results } from '@src/types/Search';
 import { useNavigate } from 'react-router-dom';
 
 import styles from './Autocomplete.module.scss';
