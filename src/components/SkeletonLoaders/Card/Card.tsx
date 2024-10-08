@@ -8,7 +8,7 @@ export const CardSkeletonLoader = ({
   type?: string;
 }) => {
   return (
-    <section className={`${styles.container} ${styles[type]}`}>
+    <div className={`${styles.container} ${styles[type]}`}>
       <div className={styles.img}></div>
       <div className={styles.info}>
         <div className={styles.user}>
@@ -17,6 +17,6 @@ export const CardSkeletonLoader = ({
           <p></p>
         </div>
       </div>
-    </section>
+    </div>
   );
 };

@@ -1,7 +1,7 @@
 import { fetchSearch } from '@api/fetchSearch';
 import { SearchHeader } from '@components/SearchHeader/SearchHeader';
-import { Pagination } from '@entities/Arts';
-import { Results } from '@entities/Search';
+import { Pagination } from '@src/types/Arts';
+import { Results } from '@src/types/Search';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -28,6 +28,15 @@ export const SearchPage = () => {
     });
   }, [page, query]);
 
+  const handleNavigate = (id: number) => {
+    navigate(`/art/${id}`);
+  };
+
+  const handleSetPage = (page: number) => {
+    setPage(page + 1);
+    setIsloading(true);
+  };
+
   return (
     <section className={styles.container}>
       <SearchHeader query={query} />
@@ -40,22 +49,19 @@ export const SearchPage = () => {
                   key={item.id}
                   title={item.thumbnail?.alt_text}
                   onClick={() => {
-                    navigate(`/art/${item.id}`);
-                  }}
-                >
+                    handleNavigate(item.id);
+                  }}>
                   {item.title}
                 </p>
               );
-            })}{' '}
+            })}
           </div>
           <button
             className={styles.more}
             onClick={() => {
-              setPage(page + 1);
-              setIsloading(true);
+              handleSetPage(page);
             }}
-            disabled={!(page < (pagination?.total_pages as number))}
-          >
+            disabled={!(page < (pagination?.total_pages as number))}>
             {isLoading
               ? 'Loading...'
               : page < (pagination?.total_pages as number)

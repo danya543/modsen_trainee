@@ -1,25 +1,3 @@
-// module.exports = {
-//   root: true,
-//   env: { browser: true, es2020: true },
-//   extends: [
-//     "eslint:recommended",
-//     "plugin:@typescript-eslint/recommended",
-//     "plugin:react-hooks/recommended",
-//   ],
-//   ignorePatterns: ["dist", ".eslintrc.cjs"],
-//   parser: "@typescript-eslint/parser",
-//   plugins: ["react-refresh", "simple-import-sort"],
-//   rules: {
-//     "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
-//     "simple-import-sort/imports": "error",
-//     "simple-import-sort/exports": "error",
-//   },
-//   parserOptions: {
-//     sourceType: "module",
-//     ecmaVersion: "latest",
-//   },
-// };
-
 module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
@@ -44,14 +22,28 @@ module.exports = {
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended', // Prettier integration
+    'plugin:prettier/recommended',
+    'prettier',
   ],
   plugins: ['react', '@typescript-eslint', 'simple-import-sort'],
   rules: {
-    'prettier/prettier': 'error', // Treat prettier errors as ESLint errors
-    'react/react-in-jsx-scope': 'off', // Not needed with React 17+
+    'prettier/prettier': [
+      'error',
+      {
+        semi: true,
+        singleQuote: true,
+        trailingComma: 'all',
+        printWidth: 80,
+        tabWidth: 2,
+        arrowParens: 'avoid',
+        bracketSpacing: true,
+        jsxBracketSameLine: true,
+        endOfLine: 'auto',
+      },
+    ],
+    'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
-    'simple-import-sort/imports': 'error', // Sort imports
-    'simple-import-sort/exports': 'error', // Sort exports
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
   },
 };

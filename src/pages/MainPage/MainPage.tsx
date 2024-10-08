@@ -4,10 +4,10 @@ import { Topics } from '@components/Topics/Topics';
 
 export const MainPage = () => {
   return (
-    <div>
+    <main>
       <SearchHeader />
       <Topics />
       <OtherWorks />
-    </div>
+    </main>
   );
 };

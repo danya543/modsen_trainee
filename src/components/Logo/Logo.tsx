@@ -1,11 +1,7 @@
-import BlackLogo from '@assets/black_logo.svg';
-import LightLogo from '@assets/logo.svg';
+import { Images, LogoThemes } from '@components/constants';
 import { useNavigate } from 'react-router-dom';
 
-export const LogoThemes = {
-  Black: 'black_logo',
-  Light: 'ligt_logo',
-} as const;
+import styles from './Logo.module.scss';
 
 export const Logo = ({
   theme,
@@ -13,10 +9,11 @@ export const Logo = ({
   theme: (typeof LogoThemes)[keyof typeof LogoThemes];
 }) => {
   const navigate = useNavigate();
+  const { BlackLogo, LightLogo } = Images;
+
   return (
-    <div onClick={() => navigate('/')}>
+    <div className={styles.container} onClick={() => navigate('/')}>
       <img
-        style={{ width: '100%' }}
         src={theme === LogoThemes.Black ? BlackLogo : LightLogo}
         alt="Logo"
       />

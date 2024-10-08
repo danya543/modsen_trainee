@@ -1,0 +1,38 @@
+@import '@styles/theme.scss';
+
+.gallery {
+  position: relative;
+  font-family: $base-font-family;
+  margin-top: 100px;
+
+  .header {
+    text-align: center;
+    margin-bottom: 50px;
+
+    p {
+      color: $primary-orange-color;
+      @each $width, $fSize in $header_p_breakpoints {
+        @media screen and (max-width: $width) {
+          font-size: $fSize;
+        }
+      }
+    }
+
+    h3 {
+      @each $width, $fSize in $h_breakpoints {
+        @media screen and (max-width: $width) {
+          font-size: $fSize;
+        }
+      }
+    }
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 90%;
+    margin-left: 5%;
+    justify-content: center;
+  }
+}

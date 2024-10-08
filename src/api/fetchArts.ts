@@ -1,4 +1,4 @@
-import { UserArtsResponse } from '@entities/Arts';
+import { UserArtsResponse } from '@src/types/Arts';
 
 import { BASE_API_URL } from './constants';
 

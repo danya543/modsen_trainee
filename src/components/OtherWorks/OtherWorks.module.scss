@@ -1,23 +1,29 @@
-$header-font-size: 2.5vw;
-$span-font-size: 1.5vw;
-$p-font-size: 1.5vw;
+@import '@styles/theme.scss';
 
 .container {
   width: 90%;
   margin: 100px auto 0;
-  font-family: 'Lexend Deca';
+  font-family: $base-font-family;
 
   .title {
     text-align: center;
 
     p {
-      font-size: 2vw;
-      color: rgba(224, 164, 73, 1);
+      color: $primary-orange-color;
+      @each $width, $fSize in $header_p_breakpoints {
+        @media screen and (max-width: $width) {
+          font-size: $fSize;
+        }
+      }
     }
 
     h3 {
-      font-size: 5vw;
       margin-bottom: 30px;
+      @each $width, $fSize in $h_breakpoints {
+        @media screen and (max-width: $width) {
+          font-size: $fSize;
+        }
+      }
     }
   }
 

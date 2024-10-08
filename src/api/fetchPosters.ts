@@ -1,4 +1,4 @@
-import { UserArtResponse } from '@entities/Arts';
+import { UserArtResponse } from '@src/types/Arts';
 
 import { fetchPoster } from './fetchPoster';
 

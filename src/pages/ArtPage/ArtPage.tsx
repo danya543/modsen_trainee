@@ -1,38 +1,20 @@
 import { IMAGE_API_URL } from '@api/constants';
-import { loadImage } from '@api/fetchImage';
-import { fetchPoster } from '@api/fetchPoster';
-import NoImage from '@assets/no-image.png';
-import { CardSize } from '@components/constants';
+import { CardSize, Images } from '@components/constants';
 import { Loader } from '@components/Loader/Loader';
 import { ArtPageSkeletonLoader } from '@components/SkeletonLoaders/ArtPage/ArtPage';
-import { Arts } from '@entities/Arts';
+import { useArtPage } from '@hooks/useArtPage';
 import { Bookmark } from '@utils/Bookmark';
-import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import styles from './ArtPage.module.scss';
+const ObjectInfo = {
+  no_info: 'no info',
+};
 
 export const ArtPage = () => {
+  const { NoImage } = Images;
   const { id } = useParams<'id'>();
-  const [data, setData] = useState<Arts | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
-
-  useEffect(() => {
-    fetchPoster(id).then(data => setData(data.data));
-    try {
-      data?.image_id &&
-        loadImage(`${IMAGE_API_URL}/${data.image_id}/full/843,/0/default.jpg`)
-          .then(() => setIsLoading(false))
-          .catch(() => {
-            setIsLoading(false);
-            setIsError(true);
-          });
-    } catch (err) {
-      setIsLoading(false);
-      setIsError(true);
-    }
-  }, [id, data?.image_id]);
+  const { data, isLoading, isError } = useArtPage(id);
 
   return data ? (
     <section className={styles.container}>
@@ -40,7 +22,7 @@ export const ArtPage = () => {
         {isLoading ? (
           <Loader type={CardSize.Large} />
         ) : isError ? (
-          <img src={NoImage} alt="" className={styles.no_image} />
+          <img src={NoImage} className={styles.no_image} />
         ) : (
           <img
             src={`${IMAGE_API_URL}/${data.image_id}/full/843,/0/default.jpg`}
@@ -53,26 +35,26 @@ export const ArtPage = () => {
       <div className={styles.info}>
         <div className={styles.title}>
           <h1>{data.title}</h1>
-          <span>{data.artist_title || 'No info'}</span>
-          <p>{data.date_start}</p>
+          <span>{data.artist_title || ObjectInfo.no_info}</span>
+          <p>{data.date_start || ObjectInfo.no_info}</p>
         </div>
         <div className={styles.overview}>
           <h3>Overview</h3>
           <p>
-            <span>Artist nacionality: </span>
-            {data.place_of_origin}
+            <span>Artist nationality: </span>
+            {data.place_of_origin || ObjectInfo.no_info}
           </p>
           <p>
             <span>Dimensions: </span>
-            {data.dimensions.split(';')[0]}
+            {data.dimensions ? data.dimensions.split(';')[0] : 'no info'}
           </p>
           <p>
             <span>Credit Line: </span>
-            {data.credit_line}
+            {data.credit_line || ObjectInfo.no_info}
           </p>
           <p>
             <span>Repository: </span>
-            {data.publishing_verification_level}
+            {data.publishing_verification_level || ObjectInfo.no_info}
           </p>
         </div>
       </div>

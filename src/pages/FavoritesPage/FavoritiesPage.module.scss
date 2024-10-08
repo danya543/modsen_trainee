@@ -1,5 +1,7 @@
+@import '@styles/theme.scss';
+
 .container {
-  font-family: 'Lexend Deca';
+  font-family: $base-font-family;
   display: flex;
   flex-direction: column;
 
@@ -8,9 +10,13 @@
     font-size: 64px;
     text-transform: capitalize;
 
+    @media(max-width: 700px) {
+      font-size: 50px;
+    }
+
     span {
       position: relative;
-      color: rgba(241, 121, 0, 1);
+      color: $secondary-orange-color;
 
       &::before {
         content: '';
@@ -28,21 +34,25 @@
 
   .wrapper {
     position: relative;
-    font-family: 'Lexend Deca';
+    font-family: $base-font-family;
     text-align: center;
 
     p {
-      color: rgba(224, 164, 73, 1);
+      color: $primary-orange-color;
     }
 
     h3 {
-      font-size: 4vw;
+      @each $width, $fSize in $h_breakpoints {
+        @media screen and (max-width: $width) {
+          font-size: $fSize;
+        }
+      }
     }
 
     .posts_container {
       width: 90%;
       margin: 0 auto;
-      margin-top: 50px;
+      margin-top: 65px;
       display: flex;
       flex-direction: row;
       justify-content: center;
@@ -53,7 +63,7 @@
 
     .no_favorites {
       margin-top: 20px;
-      font-size: 3vw;
+      font-size: 35px;
     }
   }
 }

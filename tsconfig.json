@@ -10,8 +10,10 @@
       "@components/*": ["./src/components/*"],
       "@assets/*": ["./src/assets/*"],
       "@api/*": ["./src/api/*"],
-      "@entities/*": ["./src/entities/*"],
+      "@hooks/*": ["./src/hooks/*"],
       "@pages/*": ["./src/pages/*"],
+      "@src/types/*": ["./src/types/*"], 
+      "@styles/*": ["./src/styles/*"] ,
       "@utils/*": ["./src/utils/*"]
     },
 
@@ -30,7 +32,7 @@
     "allowSyntheticDefaultImports": true,
 
     /* Types */
-    "types": ["react-router-dom", "jest", "node"]
+    "types": ["react-router-dom", "jest", "node", "@testing-library/jest-dom"]
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

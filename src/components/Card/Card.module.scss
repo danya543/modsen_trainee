@@ -1,3 +1,5 @@
+@import '@styles/theme.scss';
+
 .card {
   width: 33%;
   padding: 16px;
@@ -15,24 +17,30 @@
     .user {
       display: flex;
       flex-direction: column;
-      font-family: 'Lexend Deca';
+      font-family: $base-font-family;
       text-align: left;
 
       span {
-        color: rgb(224, 164, 73);
-        font-size: 15px;
+        color: $primary-orange-color;
+        @each $width, $fSize in $p_breakpoints {
+          @media screen and (max-width: $width) {
+            font-size: $fSize;
+          }
+        }
       }
 
       p {
         font-weight: 700;
-        color: rgba(57, 57, 57, 1);
-        font-size: 15px;
+        color: $gray-color;
+        @each $width, $fSize in $p_breakpoints {
+          @media screen and (max-width: $width) {
+            font-size: $fSize;
+          }
+        }
       }
 
       h3 {
-        cursor: pointer;
-        color: rgba(57, 57, 57, 1);
-        font-size: 1.5vw;
+        color: $gray-color;
         margin-bottom: 10px;
       }
     }
@@ -77,7 +85,7 @@
     width: 80%;
     margin-top: -60px;
     padding: 25px 15px;
-    background: white;
+    background: $skeleton-bg-color;
     top: 85%;
     left: 0;
 
@@ -85,12 +93,10 @@
       margin-right: 20px;
 
       h3 {
-        @media (max-width: 1000px) {
-          font-size: 2.2vw;
-        }
-
-        @media (max-width: 700px) {
-          font-size: 3.5vw;
+        @each $width, $fSize in $card_h_breakpoints {
+          @media screen and (max-width: $width) {
+            font-size: $fSize;
+          }
         }
       }
     }
@@ -103,7 +109,7 @@
   gap: 10px;
   min-width: 380px;
   max-height: 150px;
-  border: 1px solid rgba(240, 241, 241, 1);
+  border: 1px solid $skeleton-p-color;
 
   @media (max-width: 1300px) {
     width: 45%;
@@ -125,12 +131,10 @@
 
     .user {
       h3 {
-        @media (max-width: 900px) {
-          font-size: 2vw;
-        }
-
-        @media (max-width: 900px) {
-          font-size: 3vw;
+        @each $width, $fSize in $small_card_h_breakpoints {
+          @media screen and (max-width: $width) {
+            font-size: $fSize;
+          }
         }
       }
     }

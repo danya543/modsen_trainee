@@ -25,13 +25,21 @@ export default defineConfig({
         path.dirname(url.fileURLToPath(import.meta.url)),
         'src/api',
       ),
-      '@entities': path.resolve(
+      '@hooks': path.resolve(
         path.dirname(url.fileURLToPath(import.meta.url)),
-        'src/entities',
+        'src/hooks',
       ),
       '@pages': path.resolve(
         path.dirname(url.fileURLToPath(import.meta.url)),
         'src/pages',
+      ),
+      '@src/types': path.resolve(
+        path.dirname(url.fileURLToPath(import.meta.url)),
+        'src/types',
+      ),
+      '@styles': path.resolve(
+        path.dirname(url.fileURLToPath(import.meta.url)),
+        'src/styles',
       ),
       '@utils': path.resolve(
         path.dirname(url.fileURLToPath(import.meta.url)),

@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   z-index: 1;
-  background: rgb(132, 132, 132);
+  background: rgba(132, 132, 132, 1);
   border-bottom-right-radius: 15px;
   margin: -100% 0 0 -100%;
   width: 50%;
@@ -22,7 +22,7 @@
   .menu {
     position: relative;
     top: 20%;
-    left: 40%;
-    width: 50%;
+    left: 10%;
+    width: 80%;
   }
 }

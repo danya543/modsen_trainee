@@ -1,3 +1,5 @@
+@import '@styles/theme.scss';
+
 .searchBlock {
   margin-top: 50px;
   display: flex;
@@ -5,10 +7,9 @@
   align-items: center;
 
   h3 {
-    font-family: 'Lexend Deca';
+    font-family: $base-font-family;
     font-weight: 700;
-    color: rgba(57, 57, 57, 1);
-
+    color: $gray-color;
     width: 660px;
     font-size: 64px;
     text-align: center;
@@ -16,35 +17,53 @@
     text-wrap: wrap;
     margin-bottom: 30px;
 
+    @media (min-width:1800px) {
+      font-size: 80px;
+    }
+
     span {
-      color: rgba(241, 121, 0, 1);
+      color: $secondary-orange-color;
     }
   }
 
   .searchInput {
     position: relative;
 
-    > div:nth-child(2) {
+    >div:nth-child(2) {
       position: absolute;
       top: 38px;
       left: 15px;
     }
 
     input {
-      font-family: 'Lexend Deca';
+      font-family: $base-font-family;
       font-size: 20px;
       box-sizing: border-box;
       width: 660px;
       height: 60px;
       padding: 6px 85px 6px 16px;
-      background: rgba(57, 57, 57, 0.05);
+      background: rgba($gray-color, 0.05);
       border: 0;
       border-radius: 15px;
       outline: none;
 
+      @media (min-width:1800px) {
+        width: 800px;
+      }
+
+      @each $width, $fSize in $card_h_breakpoints {
+        @media screen and (max-width: $width) {
+          font-size: $fSize;
+        }
+      }
+
       &:focus {
         border-radius: 15px 15px 0 0;
       }
+    }
+
+    .error {
+      color: $error-color;
     }
 
     button {

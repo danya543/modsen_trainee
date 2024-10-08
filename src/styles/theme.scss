@@ -1,0 +1,67 @@
+@mixin animBackground {
+    background: linear-gradient(110deg,
+            rgb(236, 236, 236) 8%,
+            rgb(245, 245, 245) 18%,
+            rgb(236, 236, 236) 33%);
+    background-size: 200% 100%;
+    animation: 1.5s shine linear infinite;
+}
+
+@mixin flex-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+$base-font-family: 'Lexend Deca';
+
+$primary-orange-color: rgb(224, 164, 73);
+$secondary-orange-color: rgb(241, 121, 0);
+$primary-color-hover: rgb(251, 215, 178);
+$gray-color: rgb(57, 57, 57);
+
+$skeleton-bg-color: rgb(255, 255, 255);
+$skeleton-p-color: rgb(238, 238, 238);
+
+$error-color: rgb(255, 0, 0);
+
+$header_p_breakpoints: (
+    3000px: 25px,
+    1800px: 20px,
+);
+$p_breakpoints: (
+    3000px: 25px,
+    1800px: 20px,
+    1000px: 15px,
+);
+$card_h_breakpoints: (
+    3000px: 35px,
+    1800px: 25px,
+    700px: 20px,
+);
+$small_card_h_breakpoints: (
+    3000px: 30px,
+    1800px: 20px,
+);
+$h_breakpoints: (
+    3000px: 50px,
+    1800px: 40px,
+);
+$h_artpage_breakpoints: (
+    3000px: 50px,
+    1800px: 40px,
+    1000px: 50px,
+    700px: 30px
+);
+$p_artpage_breakpoints: (
+    3000px: 25px,
+    1800px: 20px,
+    1000px: 25px,
+    700px: 17px
+);
+$bookmark_block_breackpoints: (
+    3000px: 90px,
+    1800px: 80px,
+    1200px: 60px,
+    )

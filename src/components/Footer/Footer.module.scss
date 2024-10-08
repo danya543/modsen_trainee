@@ -6,15 +6,21 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-}
 
-@media (max-width: 500px) {
-  .footer {
+  @media (min-width:1000px) {
+
+    div,
+    >img {
+      width: 20%;
+    }
+  }
+
+  @media (max-width: 500px) {
     width: 90%;
     padding: 0 5%;
 
-    > div,
-    > img {
+    >div,
+    >img {
       width: 50%;
     }
   }

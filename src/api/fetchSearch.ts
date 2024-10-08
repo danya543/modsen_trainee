@@ -1,4 +1,4 @@
-import { SearchResults } from '@entities/Search';
+import { SearchResults } from '@src/types/Search';
 
 import { ArtsPerPage, BASE_API_URL } from './constants';
 

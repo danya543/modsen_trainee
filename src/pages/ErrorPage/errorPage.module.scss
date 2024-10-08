@@ -1,8 +1,9 @@
+@import '@styles/theme.scss';
+
 .page_404 {
   font-family: 'Arvo', serif;
 
   .four_zero_four_bg {
-    //background: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif) no-repeat;
     position: absolute;
     bottom: 0;
     background-position: center;
@@ -14,7 +15,7 @@
     img {
       position: absolute;
       bottom: -23vh;
-      left: 50vw;
+      left: 50%;
       transform: translateX(-50%);
     }
   }
@@ -37,9 +38,9 @@
     }
 
     a {
-      color: #fff;
+      color: $skeleton-bg-color;
       padding: 10px 20px;
-      background: rgba(241, 121, 0, 1);
+      background: $secondary-orange-color;
       margin: 20px 0;
       display: inline-block;
       text-decoration: none;

@@ -1,15 +1,15 @@
-import Open from '@assets/burger.png';
-import Close from '@assets/burger_cross.png';
+import { Images } from '@components/constants';
 import { useState } from 'react';
 
 export const useBurgerMenu = () => {
+  const { CloseMenu, OpenMenu } = Images;
   const [isOpen, setIsOpen] = useState(false);
 
   const closeMenu = () => setIsOpen(false);
 
   const toggleMenu = () => setIsOpen(prev => !prev);
 
-  const menuIcon = isOpen ? Close : Open;
+  const menuIcon = isOpen ? CloseMenu : OpenMenu;
 
   return {
     isOpen,
