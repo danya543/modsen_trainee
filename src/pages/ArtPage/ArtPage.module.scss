@@ -1,0 +1,135 @@
+@import '@styles/theme.scss';
+
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  margin: 100px 10% 0;
+  font-family: $base-font-family;
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-height: 500px;
+
+    .title {
+      margin-bottom: 20px;
+
+      h1 {
+        font-weight: 400;
+        margin: 0;
+        margin-bottom: 20px;
+
+        @each $width, $fSize in $h_artpage_breakpoints {
+          @media screen and (max-width: $width) {
+            font-size: $fSize;
+          }
+        }
+      }
+
+      span {
+        color: $primary-orange-color;
+
+        @each $width, $fSize in $p_artpage_breakpoints {
+          @media screen and (max-width: $width) {
+            font-size: $fSize;
+          }
+        }
+      }
+
+      p {
+        margin-top: 10px;
+        font-weight: 500;
+
+        @each $width, $fSize in $p_artpage_breakpoints {
+          @media screen and (max-width: $width) {
+            font-size: $fSize;
+          }
+        }
+      }
+    }
+
+    .overview {
+      h3 {
+        font-weight: 400;
+        margin-bottom: 20px;
+
+        @each $width, $fSize in $h_artpage_breakpoints {
+          @media screen and (max-width: $width) {
+            font-size: $fSize;
+          }
+        }
+      }
+
+      p {
+        margin-bottom: 10px;
+
+        @each $width, $fSize in $p_artpage_breakpoints {
+          @media screen and (max-width: $width) {
+            font-size: $fSize;
+          }
+        }
+
+        span {
+          color: $primary-orange-color;
+        }
+      }
+    }
+  }
+
+  .img_block {
+    position: relative;
+    width: 30%;
+    min-width: 300px;
+
+    .poster {
+      width: 100%;
+      max-height: 400px;
+      height: 100%;
+      object-fit: cover;
+
+      @media (min-width:1300px) {
+        max-height: 700px;
+      }
+    }
+
+
+    .no_image {
+      width: 100%;
+    }
+
+    button {
+      position: absolute;
+      top: 5%;
+      right: 5%;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+
+    .img_block {
+      width: 100%;
+
+      .poster {
+        max-height: 750px;
+      }
+    }
+
+    .info {
+      width: 100%;
+      gap: 30px;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    gap: 30px;
+    margin-top: 30px;
+  }
+}

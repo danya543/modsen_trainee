@@ -1,0 +1,35 @@
+@import '@styles/theme.scss';
+
+.container {
+  position: absolute;
+  top: 85px;
+  right: 7%;
+  z-index: 1;
+  width: 100px;
+  border-radius: 30%;
+  overflow: hidden;
+  border: 1px solid $primary-orange-color;
+
+  button {
+    cursor: pointer;
+    font-family: $base-font-family;
+    font-weight: 500;
+    padding: 10px 0;
+    background: transparent;
+    border: 0;
+    width: 50%;
+    color: $primary-orange-color;
+
+    &.isActive {
+      background: rgba($primary-orange-color, 0.5);
+    }
+
+    &:nth-child(1) {
+      border-right: 1px solid $primary-orange-color;
+    }
+
+    &:hover {
+      background: rgba($primary-orange-color, 0.3);
+    }
+  }
+}

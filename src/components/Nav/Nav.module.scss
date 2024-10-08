@@ -1,0 +1,36 @@
+@import '@styles/theme.scss';
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: space-between;
+
+  &.column {
+    flex-direction: column;
+  }
+
+  .navItem {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+
+    img {
+      width: 25px;
+      height: 25px;
+    }
+
+    p {
+      font-family: $base-font-family;
+      font-weight: 400;
+      font-size: 20px;
+      color: $skeleton-bg-color;
+    }
+  }
+
+  .none {
+    display: none;
+  }
+}

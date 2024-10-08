@@ -1,0 +1,142 @@
+@import '@styles/theme.scss';
+
+.card {
+  width: 33%;
+  padding: 16px;
+  display: flex;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  .info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    .user {
+      display: flex;
+      flex-direction: column;
+      font-family: $base-font-family;
+      text-align: left;
+
+      span {
+        color: $primary-orange-color;
+        @each $width, $fSize in $p_breakpoints {
+          @media screen and (max-width: $width) {
+            font-size: $fSize;
+          }
+        }
+      }
+
+      p {
+        font-weight: 700;
+        color: $gray-color;
+        @each $width, $fSize in $p_breakpoints {
+          @media screen and (max-width: $width) {
+            font-size: $fSize;
+          }
+        }
+      }
+
+      h3 {
+        color: $gray-color;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+.large {
+  position: relative;
+  min-width: 300px;
+  margin-bottom: 50px;
+  align-items: center;
+  flex-direction: column;
+
+  @media (max-width: 1000px) {
+    width: 45%;
+  }
+
+  @media (max-width: 700px) {
+    width: 90%;
+  }
+
+  .poster {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+  }
+
+  .no_image {
+    padding: 18% 5%;
+    width: 90%;
+    object-fit: cover;
+    margin-bottom: 50px;
+
+    @media (min-width: 1200px) {
+      object-fit: contain;
+      width: 85%;
+      height: 300px;
+    }
+  }
+
+  .info {
+    width: 80%;
+    margin-top: -60px;
+    padding: 25px 15px;
+    background: $skeleton-bg-color;
+    top: 85%;
+    left: 0;
+
+    .user {
+      margin-right: 20px;
+
+      h3 {
+        @each $width, $fSize in $card_h_breakpoints {
+          @media screen and (max-width: $width) {
+            font-size: $fSize;
+          }
+        }
+      }
+    }
+  }
+}
+
+.small {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  min-width: 380px;
+  max-height: 150px;
+  border: 1px solid $skeleton-p-color;
+
+  @media (max-width: 1300px) {
+    width: 45%;
+  }
+
+  @media (max-width: 900px) {
+    width: 90%;
+  }
+
+  .no_image,
+  .poster {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+  }
+
+  .info {
+    width: 80%;
+
+    .user {
+      h3 {
+        @each $width, $fSize in $small_card_h_breakpoints {
+          @media screen and (max-width: $width) {
+            font-size: $fSize;
+          }
+        }
+      }
+    }
+  }
+}

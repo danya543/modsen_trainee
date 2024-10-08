@@ -1,0 +1,27 @@
+.footer {
+  margin: 100px 0 50px;
+  width: 80%;
+  padding: 0 10%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (min-width:1000px) {
+
+    div,
+    >img {
+      width: 20%;
+    }
+  }
+
+  @media (max-width: 500px) {
+    width: 90%;
+    padding: 0 5%;
+
+    >div,
+    >img {
+      width: 50%;
+    }
+  }
+}

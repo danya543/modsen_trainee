@@ -1,0 +1,69 @@
+@import '@styles/theme.scss';
+
+.container {
+  font-family: $base-font-family;
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    text-align: center;
+    font-size: 64px;
+    text-transform: capitalize;
+
+    @media(max-width: 700px) {
+      font-size: 50px;
+    }
+
+    span {
+      position: relative;
+      color: $secondary-orange-color;
+
+      &::before {
+        content: '';
+        bottom: 0;
+        left: -20%;
+        position: absolute;
+        width: 60px;
+        height: 75px;
+        background-image: url('@assets/header_bookmark.svg');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+    }
+  }
+
+  .wrapper {
+    position: relative;
+    font-family: $base-font-family;
+    text-align: center;
+
+    p {
+      color: $primary-orange-color;
+    }
+
+    h3 {
+      @each $width, $fSize in $h_breakpoints {
+        @media screen and (max-width: $width) {
+          font-size: $fSize;
+        }
+      }
+    }
+
+    .posts_container {
+      width: 90%;
+      margin: 0 auto;
+      margin-top: 65px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px 5px;
+    }
+
+    .no_favorites {
+      margin-top: 20px;
+      font-size: 35px;
+    }
+  }
+}

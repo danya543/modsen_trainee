@@ -1,0 +1,65 @@
+@import '@styles/theme.scss';
+
+.container {
+  @include flex-col();
+
+  .results_container {
+    width: 100%;
+    @include flex-col();
+
+    .results {
+      width: 60%;
+      margin: 0 auto;
+      font-family: $base-font-family;
+
+      @media (max-width: 1000px) {
+        width: 80%;
+      }
+
+      @each $width, $fSize in $card_h_breakpoints {
+        @media screen and (max-width: $width) {
+          font-size: $fSize;
+        }
+      }
+
+      >p {
+        cursor: pointer;
+        padding: 10px 15px;
+        background: $skeleton-p-color;
+        margin-top: 10px;
+
+        &:hover {
+          background: rgba($primary-color-hover, 0.3);
+        }
+      }
+    }
+
+    .more {
+      font-family: $base-font-family;
+      padding: 10px 5px;
+      cursor: pointer;
+      border: 0;
+      border-radius: 30px;
+      width: 30%;
+      background: rgba($primary-color-hover, 0.3);
+
+      @media (max-width:700px) {
+        width: 50%;
+      }
+
+      @each $width, $fSize in $card_h_breakpoints {
+        @media screen and (max-width: $width) {
+          font-size: $fSize;
+        }
+      }
+
+      &:hover:not(:disabled) {
+        background: rgba($primary-color-hover, 0.5);
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+      }
+    }
+  }
+}

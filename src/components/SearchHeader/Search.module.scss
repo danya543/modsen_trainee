@@ -1,0 +1,113 @@
+@import '@styles/theme.scss';
+
+.searchBlock {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h3 {
+    font-family: $base-font-family;
+    font-weight: 700;
+    color: $gray-color;
+    width: 660px;
+    font-size: 64px;
+    text-align: center;
+    text-transform: capitalize;
+    text-wrap: wrap;
+    margin-bottom: 30px;
+
+    @media (min-width:1800px) {
+      font-size: 80px;
+    }
+
+    span {
+      color: $secondary-orange-color;
+    }
+  }
+
+  .searchInput {
+    position: relative;
+
+    >div:nth-child(2) {
+      position: absolute;
+      top: 38px;
+      left: 15px;
+    }
+
+    input {
+      font-family: $base-font-family;
+      font-size: 20px;
+      box-sizing: border-box;
+      width: 660px;
+      height: 60px;
+      padding: 6px 85px 6px 16px;
+      background: rgba($gray-color, 0.05);
+      border: 0;
+      border-radius: 15px;
+      outline: none;
+
+      @media (min-width:1800px) {
+        width: 800px;
+      }
+
+      @each $width, $fSize in $card_h_breakpoints {
+        @media screen and (max-width: $width) {
+          font-size: $fSize;
+        }
+      }
+
+      &:focus {
+        border-radius: 15px 15px 0 0;
+      }
+    }
+
+    .error {
+      color: $error-color;
+    }
+
+    button {
+      outline: none;
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      left: 95%;
+      transform: translate(-50%, -50%);
+      border: 0;
+      background: transparent;
+    }
+
+    .clearInput {
+      position: absolute;
+      left: 89%;
+
+      img {
+        width: 14px;
+        height: 14px;
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .searchBlock {
+    width: 90%;
+    margin: 50px auto;
+
+    h3 {
+      width: 100%;
+    }
+
+    .searchInput {
+      width: 100%;
+
+      input {
+        width: 100%;
+      }
+
+      .clearInput {
+        left: 85%;
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+@import '@styles/theme.scss';
+
+.container {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  background: $skeleton-bg-color;
+  border: 1px solid rgb(158, 158, 158);
+  border-top: 0;
+  border-radius: 0 0 15px 15px;
+  padding-right: 1%;
+  padding-bottom: 2%;
+  box-sizing: border-box;
+
+  ul {
+    font-family: $base-font-family;
+    padding: 10px 0;
+    height: fit-content;
+    max-height: 200px;
+    overflow-y: scroll;
+
+    @each $width, $fSize in $header_p_breakpoints {
+      @media screen and (max-width: $width) {
+        font-size: $fSize;
+      }
+    }
+
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: $skeleton-bg-color;
+    }
+
+    li {
+      list-style: none;
+      padding: 15px;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background: rgba($primary-color-hover, 0.3);
+      }
+    }
+  }
+}
