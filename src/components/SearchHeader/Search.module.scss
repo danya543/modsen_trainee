@@ -10,13 +10,16 @@
     font-family: $base-font-family;
     font-weight: 700;
     color: $gray-color;
-
     width: 660px;
     font-size: 64px;
     text-align: center;
     text-transform: capitalize;
     text-wrap: wrap;
     margin-bottom: 30px;
+
+    @media (min-width:1800px) {
+      font-size: 80px;
+    }
 
     span {
       color: $secondary-orange-color;
@@ -26,7 +29,7 @@
   .searchInput {
     position: relative;
 
-    > div:nth-child(2) {
+    >div:nth-child(2) {
       position: absolute;
       top: 38px;
       left: 15px;
@@ -44,12 +47,22 @@
       border-radius: 15px;
       outline: none;
 
+      @media (min-width:1800px) {
+        width: 800px;
+      }
+
+      @each $width, $fSize in $card_h_breakpoints {
+        @media screen and (max-width: $width) {
+          font-size: $fSize;
+        }
+      }
+
       &:focus {
         border-radius: 15px 15px 0 0;
       }
     }
 
-    .error{
+    .error {
       color: $error-color;
     }
 

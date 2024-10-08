@@ -18,13 +18,13 @@ export const Nav = ({ isColumn = false }: { isColumn?: boolean }) => {
       <div
         className={`${styles.navItem} ${location.pathname === '/' ? styles.none : ''}`}
         onClick={() => handleNavigate('/')}>
-        <img src={Home} alt="" />
+        <img src={Home} alt={'Home icon'} />
         <p>Home</p>
       </div>
       <div
         className={`${styles.navItem} ${location.pathname === '/favorites' ? styles.none : ''}`}
         onClick={() => handleNavigate('/favorites')}>
-        <img src={BookmarkIcon} alt="" />
+        <img src={BookmarkIcon} alt={'Favorites icon'} />
         <p>Your favorites</p>
       </div>
     </nav>

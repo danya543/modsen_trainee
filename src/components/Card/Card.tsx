@@ -27,7 +27,7 @@ export const Card = ({
       {isLoading ? (
         <Loader type={type} />
       ) : isError ? (
-        <img src={NoImage} alt="" className={styles.no_image} />
+        <img src={NoImage} className={styles.no_image} />
       ) : (
         <img
           src={`${IMAGE_API_URL}/${data.image_id}/full/843,/0/default.jpg`}

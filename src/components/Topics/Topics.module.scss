@@ -11,10 +11,19 @@
 
     p {
       color: $primary-orange-color;
+      @each $width, $fSize in $header_p_breakpoints {
+        @media screen and (max-width: $width) {
+          font-size: $fSize;
+        }
+      }
     }
 
     h3 {
-      font-size: 30px;
+      @each $width, $fSize in $h_breakpoints {
+        @media screen and (max-width: $width) {
+          font-size: $fSize;
+        }
+      }
     }
   }
 

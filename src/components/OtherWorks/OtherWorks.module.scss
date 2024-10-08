@@ -1,4 +1,4 @@
-@import '../../styles/theme.scss';
+@import '@styles/theme.scss';
 
 .container {
   width: 90%;
@@ -9,13 +9,21 @@
     text-align: center;
 
     p {
-      font-size: 2vw;
       color: $primary-orange-color;
+      @each $width, $fSize in $header_p_breakpoints {
+        @media screen and (max-width: $width) {
+          font-size: $fSize;
+        }
+      }
     }
 
     h3 {
-      font-size: 5vw;
       margin-bottom: 30px;
+      @each $width, $fSize in $h_breakpoints {
+        @media screen and (max-width: $width) {
+          font-size: $fSize;
+        }
+      }
     }
   }
 

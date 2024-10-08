@@ -10,7 +10,7 @@
     "test": "jest",
     "clear_jest": "jest --clearCache",
     "lint": "eslint --debug src/",
-    "lint:write": "eslint --debug src/ --fix",
+    "lint:fix": "eslint --debug src/ --fix",
     "format": "prettier --write ."
   },
   "husky": {

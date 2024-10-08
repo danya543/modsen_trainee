@@ -2,18 +2,13 @@
 
 .container {
   position: absolute;
-  top: 50px;
+  top: 85px;
   right: 7%;
   z-index: 1;
   width: 100px;
   border-radius: 30%;
   overflow: hidden;
   border: 1px solid $primary-orange-color;
-
-  @media (max-width: 1000px) {
-    top: 60px;
-    right: 10%;
-  }
 
   button {
     cursor: pointer;
