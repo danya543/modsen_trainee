@@ -1,6 +1,7 @@
 import { Images, SessionStorageKey } from '@components/constants';
 import { useState } from 'react';
 
+import { Button } from './Button';
 import { SessionStorageManager } from './SessionStorageManager';
 import styles from './utils.module.scss';
 
@@ -30,8 +31,10 @@ export const Bookmark = ({ id }: { id: string }) => {
   };
 
   return (
-    <button className={styles.bookmark} onClick={handleToggleBookmark}>
-      <img src={isBooked ? Booked : Book} />
-    </button>
+    <Button
+      classname={styles.bookmark}
+      onClick={handleToggleBookmark}
+      icon={isBooked ? Booked : Book}
+    />
   );
 };

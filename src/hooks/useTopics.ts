@@ -1,13 +1,12 @@
-import { ArtsPerPage } from '@api/constants';
 import { fetchArts } from '@api/fetchArts';
 import { SessionStorageKey } from '@components/constants';
 import { UserArtsResponse } from '@src/types/Arts';
 import { SessionStorageManager } from '@utils/SessionStorageManager';
 import { useEffect, useState } from 'react';
 
-export const useTopics = () => {
+export const useTopics = (postsPerPage: number, initialPage: number) => {
   const [topics, setTopics] = useState<UserArtsResponse | null>(null);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(initialPage);
   const [isSortIncrease, setIsSortIncrease] = useState(true);
   const storageManager = new SessionStorageManager();
 
@@ -20,7 +19,7 @@ export const useTopics = () => {
   };
 
   useEffect(() => {
-    fetchArts(ArtsPerPage.Topics, page).then(data => {
+    fetchArts(postsPerPage, page).then(data => {
       const sortedData = sortData(data.data);
       setTopics({ ...data, data: sortedData });
       storageManager.setItem(SessionStorageKey.listId, { [page]: data.data });

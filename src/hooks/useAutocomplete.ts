@@ -1,3 +1,4 @@
+import { initialPageNum } from '@api/constants';
 import { fetchSearch } from '@api/fetchSearch';
 import { debounce } from '@components/utils';
 import { Results } from '@src/types/Search';
@@ -15,7 +16,7 @@ export const useAutocomplete = (initialQuery = '') => {
   const debouncedFetchSearch = useCallback(
     debounce((searchQuery: string) => {
       setIsLoading(true);
-      fetchSearch({ query: searchQuery, page: 1 })
+      fetchSearch({ query: searchQuery, page: initialPageNum })
         .then(data => {
           setAutocompleteTitles(data.data);
           setIsLoading(false);
