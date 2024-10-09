@@ -3,14 +3,22 @@ export const Button = ({
   classname,
   onClick,
   icon,
+  type = 'button',
+  disabled = false,
 }: {
   text?: string;
   classname?: string;
-  onClick: () => void;
+  onClick?: () => void;
   icon?: string;
+  type?: 'submit' | 'button' | undefined;
+  disabled?: boolean;
 }) => {
   return (
-    <button className={classname} onClick={onClick}>
+    <button
+      type={type}
+      className={classname}
+      onClick={onClick}
+      disabled={disabled}>
       {!icon && text}
       {icon && <img src={icon} />}
     </button>

@@ -12,7 +12,10 @@ export const useCard = (data: Arts) => {
 
   const title =
     data.title.split(' ').length > titleLength
-      ? data.title.split(' ').slice(0, titleLength).join(' ') + '...'
+      ? data.title
+          .split(' ')
+          .slice(0, titleLength - 2)
+          .join(' ') + '...'
       : data.title;
 
   useEffect(() => {

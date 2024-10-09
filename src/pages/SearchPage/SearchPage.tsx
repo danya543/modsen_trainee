@@ -1,7 +1,9 @@
+import { initialPageNum } from '@api/constants';
 import { fetchSearch } from '@api/fetchSearch';
 import { SearchHeader } from '@components/SearchHeader/SearchHeader';
 import { Pagination } from '@src/types/Arts';
 import { Results } from '@src/types/Search';
+import { Button } from '@utils/Button';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -13,7 +15,7 @@ export const SearchPage = () => {
   const [search, setSearch] = useState(query);
   const [result, setResult] = useState<Results[] | null>(null);
   const [pagination, setPagination] = useState<Pagination | null>(null);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(initialPageNum);
   const [isLoading, setIsloading] = useState(false);
 
   useEffect(() => {
@@ -56,18 +58,20 @@ export const SearchPage = () => {
               );
             })}
           </div>
-          <button
-            className={styles.more}
+          <Button
+            text={
+              isLoading
+                ? 'Loading...'
+                : page < (pagination?.total_pages as number)
+                  ? 'Show more'
+                  : 'No more'
+            }
+            classname={styles.more}
             onClick={() => {
               handleSetPage(page);
             }}
-            disabled={!(page < (pagination?.total_pages as number))}>
-            {isLoading
-              ? 'Loading...'
-              : page < (pagination?.total_pages as number)
-                ? 'Show more'
-                : 'No more'}
-          </button>
+            disabled={!(page < (pagination?.total_pages as number))}
+          />
         </div>
       ) : isLoading ? (
         <div>loading</div>

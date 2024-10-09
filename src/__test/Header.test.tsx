@@ -20,7 +20,15 @@ jest.mock('@components/Logo/Logo', () => ({
 jest.mock('@components/Nav/Nav', () => ({
   Nav: () => <nav>Mocked Nav</nav>,
 }));
-
+jest.mock('@api/constants', () => ({
+  BASE_API_URL: 'https://mocked.api.url',
+  IMAGE_API_URL: 'https://mocked.image.api.url',
+  ArtsPerPage: {
+    Topics: 5,
+    Search: 10,
+    Others: 12,
+  },
+}));
 jest.mock('@hooks/useBurgerMenu', () => ({
   useBurgerMenu: jest.fn(),
 }));

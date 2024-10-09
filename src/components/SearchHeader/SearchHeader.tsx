@@ -3,6 +3,7 @@ import { Images } from '@components/constants';
 import { useAutocomplete } from '@hooks/useAutocomplete';
 import { useClickOutside } from '@hooks/useClickOutside';
 import { useValidation } from '@hooks/useValidation';
+import { Button } from '@utils/Button';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -69,16 +70,14 @@ export const SearchHeader = ({ query = '' }: { query?: string }) => {
               />
             )}
             {values.search && (
-              <button
+              <Button
                 type="button"
-                className={styles.clearInput}
-                onClick={() => setFieldValue('search', '')}>
-                <img src={Cross} alt="Clear search input" />
-              </button>
+                classname={styles.clearInput}
+                onClick={() => setFieldValue('search', '')}
+                icon={Cross}
+              />
             )}
-            <button type="submit" disabled={isSubmitting}>
-              <img src={Search} alt="Search icon" />
-            </button>
+            <Button type="submit" disabled={isSubmitting} icon={Search} />
 
             <Autocomplete
               data={autocompleteTitles}
