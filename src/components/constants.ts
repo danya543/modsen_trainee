@@ -1,3 +1,4 @@
+import { ArtsPerPage, initialPageNum, OtherWorksPage } from '@api/constants';
 import BlackLogo from '@assets/black_logo.svg';
 import Book from '@assets/book.svg';
 import Booked from '@assets/booked.svg';
@@ -45,4 +46,25 @@ export const Images = {
   Cross: Cross,
   LoaderIcon: LoaderIcon,
   BookmarkIcon: BookmarkIcon,
+};
+
+export const postersTypes = {
+  Topics: {
+    title: 'Our special gallery',
+    p: 'Topics for you',
+    size: CardSize.Large,
+    initialPage: initialPageNum,
+    perPage: ArtsPerPage.Topics,
+    isSort: true,
+    isPagination: true,
+  },
+  Others: {
+    title: 'Other works for you',
+    p: 'Here some more',
+    size: CardSize.Small,
+    initialPage: OtherWorksPage,
+    perPage: ArtsPerPage.Others,
+    isSort: false,
+    isPagination: false,
+  },
 };

@@ -7,3 +7,5 @@ export const ArtsPerPage = {
   Others: 12,
 };
 export const OtherWorksPage = 1954;
+
+export const initialPageNum = 1;
