@@ -19,11 +19,11 @@ export const useArtPage = (id: string | undefined) => {
 
         if (posterData?.image_id) {
           await loadImage(posterData.image_id);
+          setIsLoading(false);
         }
       } catch (err) {
-        setIsError(true);
-      } finally {
         setIsLoading(false);
+        setIsError(true);
       }
     };
 
